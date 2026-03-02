@@ -1,7 +1,1 @@
-{
-  "name": "cloud-file-storage-system",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "cd cloud-storage-client && npm install && ./node_modules/.bin/vite build"
-  }
-}
+
