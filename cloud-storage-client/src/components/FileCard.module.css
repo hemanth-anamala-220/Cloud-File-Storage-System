@@ -1,0 +1,116 @@
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.card:hover {
+  border-color: rgba(108,99,255,0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+/* Icon */
+.iconWrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.icon {
+  font-size: 22px;
+  transition: opacity 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.viewHover {
+  position: absolute;
+  inset: 0;
+  background: rgba(108,99,255,0.92);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 2;
+}
+
+.iconWrap:hover .viewHover { opacity: 1; }
+.iconWrap:hover .icon       { opacity: 0; }
+
+/* Info */
+.info {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.info:hover .name { color: var(--accent); }
+
+.name {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+  transition: color 0.2s;
+}
+
+.meta { font-size: 12px; color: var(--text2); }
+
+/* Action buttons — must be above everything */
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.actionBtn {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+  position: relative;
+  z-index: 10;
+}
+
+.actionBtn:hover {
+  color: var(--accent);
+  background: rgba(108,99,255,0.12);
+  border-color: rgba(108,99,255,0.3);
+}
+
+.del:hover {
+  color: #ff6584 !important;
+  background: rgba(255,101,132,0.12) !important;
+  border-color: rgba(255,101,132,0.3) !important;
+}

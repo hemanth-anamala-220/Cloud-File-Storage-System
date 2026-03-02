@@ -1,0 +1,190 @@
+.page { min-height: 100vh; display: flex; flex-direction: column; }
+
+.layout {
+  display: flex;
+  flex: 1;
+  gap: 0;
+}
+
+/* ─── Sidebar ─────────────────────────── */
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--bg);
+  min-height: calc(100vh - 64px);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.statCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.statNum {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.statLabel { font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: 0.04em; }
+
+.section { display: flex; flex-direction: column; gap: 8px; }
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text2);
+  margin-bottom: 4px;
+}
+
+.empty { font-size: 13px; color: var(--text3); }
+
+.folderRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.folderRow:hover { background: var(--bg3); }
+.folderName { flex: 1; font-size: 14px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.folderDel { background: none; color: var(--text3); font-size: 11px; transition: color 0.15s; }
+.folderDel:hover { color: var(--accent2); }
+
+.newFolderForm {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.folderInput {
+  flex: 1;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-size: 13px;
+}
+.folderInput::placeholder { color: var(--text3); }
+.folderInput:focus { outline: none; border-color: rgba(108,99,255,0.4); }
+
+.folderBtn {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+.folderBtn:hover { opacity: 0.8; }
+
+/* ─── Main ──────────────────────────── */
+.main {
+  flex: 1;
+  padding: 28px;
+  overflow: auto;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filters { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.filterBtn {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.filterBtn:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
+.filterBtn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.count { font-size: 13px; color: var(--text2); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.loadWrap {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg) } }
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px;
+  gap: 10px;
+  text-align: center;
+}
+
+.emptyIcon { font-size: 64px; opacity: 0.2; margin-bottom: 8px; }
+.emptyState h3 { font-size: 20px; font-weight: 700; color: var(--text2); }
+.emptyState p  { font-size: 14px; color: var(--text3); }
+
+.uploadCTA {
+  margin-top: 8px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 9px;
+  padding: 10px 22px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+.uploadCTA:hover { opacity: 0.85; }

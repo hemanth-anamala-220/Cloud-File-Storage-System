@@ -1,0 +1,267 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 12px;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+.modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  max-width: 1100px;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+  animation: slideUp 0.25s cubic-bezier(0.16,1,0.3,1);
+  overflow: hidden;
+}
+@keyframes slideUp {
+  from{opacity:0;transform:translateY(20px) scale(0.98)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+  flex-shrink: 0;
+  gap: 12px;
+}
+.headerInfo { flex:1; min-width:0; }
+.fileName {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fileMeta { font-size:12px; color:var(--text2); margin-top:2px; }
+.headerActions { display:flex; gap:8px; align-items:center; flex-shrink:0; }
+
+.newTabBtn {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.newTabBtn:hover { color: var(--accent); }
+
+.downloadBtn {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.downloadBtn:hover { opacity:0.85; }
+
+.closeBtn {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+.closeBtn:hover { color:#ff6584; background:rgba(255,101,132,0.1); }
+
+/* Body */
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Image */
+.imgWrap {
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#06060e;
+  overflow:auto;
+  padding:20px;
+}
+.image { max-width:100%; max-height:100%; object-fit:contain; border-radius:6px; }
+.video { max-width:100%; max-height:100%; border-radius:6px; }
+
+/* Audio */
+.audioWrap {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  background:#06060e;
+  padding:48px 24px;
+}
+.audioIcon { font-size:80px; opacity:0.4; }
+.audioName { font-size:16px; font-weight:500; color:var(--text2); text-align:center; }
+.audio { width:100%; max-width:520px; accent-color:var(--accent); }
+
+/* ── PDF Viewer ───────────────────────── */
+.pdfViewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #1a1a1a;
+}
+
+.pdfControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.ctrlBtn {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 7px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.ctrlBtn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.ctrlBtn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.pageInfo { font-size:13px; color:var(--text2); padding:0 4px; }
+.divider  { width:1px; height:20px; background:var(--border); margin:0 4px; }
+
+.pdfCanvas {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+  background: #2a2a2a;
+}
+
+.canvas {
+  box-shadow: 0 4px 32px rgba(0,0,0,0.6);
+  border-radius: 4px;
+  max-width: 100%;
+}
+
+/* Doc iframe */
+.frameContainer {
+  flex:1;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+}
+.fullFrame {
+  flex:1;
+  width:100%;
+  height:100%;
+  border:none;
+  display:block;
+  background:#fff;
+}
+
+/* Text viewer */
+.textViewer { flex:1; overflow:auto; background:#0a0a0f; }
+.textContent {
+  padding:24px;
+  font-size:13px;
+  line-height:1.7;
+  color:#c9d1d9;
+  white-space:pre-wrap;
+  word-break:break-word;
+  font-family:'Courier New',monospace;
+}
+
+/* Loading */
+.centerMsg {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  color:var(--text2);
+  font-size:14px;
+  background:var(--bg);
+  z-index:1;
+}
+.spinner {
+  width:36px; height:36px;
+  border:3px solid var(--border);
+  border-top-color:var(--accent);
+  border-radius:50%;
+  animation:spin 0.7s linear infinite;
+}
+@keyframes spin { to{transform:rotate(360deg)} }
+
+/* Fallback */
+.fallback {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:60px 24px;
+  text-align:center;
+  color:var(--text2);
+}
+.fallbackIcon { font-size:72px; opacity:0.2; }
+.fallback h3  { font-size:20px; font-weight:700; }
+.fallback p   { font-size:14px; color:var(--text3); }
+.fallbackBtns { display:flex; gap:12px; margin-top:8px; flex-wrap:wrap; justify-content:center; }
+
+.dlBtn {
+  background:var(--accent); color:#fff; border-radius:9px;
+  padding:11px 22px; font-family:'Syne',sans-serif; font-weight:700;
+  font-size:14px; border:none; cursor:pointer; transition:opacity 0.2s;
+  text-decoration:none; display:inline-block;
+}
+.dlBtn:hover { opacity:0.85; }
+.openTabBtn {
+  background:var(--bg3); border:1px solid var(--border); color:var(--text2);
+  border-radius:9px; padding:11px 22px; font-size:14px;
+  font-weight:500; text-decoration:none; transition:color 0.2s;
+}
+.openTabBtn:hover { color:var(--text); }
